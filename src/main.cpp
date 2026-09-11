@@ -12,7 +12,15 @@ int main()
 
     auto msg = sender.createMessage();
 
-    bus.send(msg);
+    // bus.send(msg);
+
+    for(int i = 0; i < 100; i++)
+    {
+        auto msg = sender.createMessage();
+        bus.send(msg);
+    }
+
+    bus.printPerformanceReport();
 
     return 0;
 }

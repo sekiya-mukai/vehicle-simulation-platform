@@ -1,27 +1,23 @@
-# vehicle-simulation-platform
-This is a programme to sumilate CAN connection between ECUs
+# Vehicle Simulation & Analysis Platform
 
+車載ECU間通信を模擬し、通信品質の評価を行うためのC++製シミュレーションプラットフォームです。
 
-+----------------+
-| ECU Simulator A|
-+----------------+
-         |
-         |
-       CAN
-         |
-         |
-+----------------+
-| ECU Simulator B|
-+----------------+
+本プロジェクトは、車載ソフトウェア開発・通信評価業務で得た知見をもとに、ECU通信、ログ取得、性能測定、品質評価を再現することを目的として開発しています。
 
-         ↓
+---
 
-      Logger
+## Overview
 
-         ↓
+```mermaid
+flowchart LR
 
-   Analyzer
+    SenderECU["Sender ECU"]
+    CANBus["CAN Bus"]
+    Logger["Logger"]
+    Perf["Performance Monitor"]
+    ReceiverECU["Receiver ECU"]
 
-         ↓
-
-   HTML Report
+    SenderECU --> CANBus
+    CANBus --> Logger
+    CANBus --> Perf
+    CANBus --> ReceiverECU

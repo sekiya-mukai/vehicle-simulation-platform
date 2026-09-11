@@ -15,10 +15,13 @@ flowchart LR
     CANBus["CAN Bus"]
     Logger["Logger"]
     Perf["Performance Monitor"]
-    Perf["Packet Loss Detector"]
+    Loss["Packet Loss Detector"]
     ReceiverECU["Receiver ECU"]
 
     SenderECU --> CANBus
+
     CANBus --> Logger
     CANBus --> Perf
+    CANBus --> Loss
     CANBus --> ReceiverECU
+```

@@ -5,7 +5,11 @@
 struct Message
 {
     int id;
+    
     std::string data;
+
+    std::string data;
+
 };
 
 

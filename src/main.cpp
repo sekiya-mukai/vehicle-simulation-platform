@@ -17,10 +17,18 @@ int main()
     for(int i = 0; i < 100; i++)
     {
         auto msg = sender.createMessage();
+
+        // Cause packet loss Intentionally
+        if(i==50)
+        {
+            continue
+        }
+
         bus.send(msg);
     }
 
     bus.printPerformanceReport();
+    bus.printPacketLossReport();
 
     return 0;
 }

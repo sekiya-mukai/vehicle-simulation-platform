@@ -3,6 +3,7 @@
 #include "ecu.hpp"
 #include "logger.hpp"
 #include "performance_monitor.hpp"
+#include "packet_loss_detector.hpp"
 
 #include <chrono>
 
@@ -15,6 +16,8 @@ private:
     Logger logger;
 
     PerformanceMonitor monitor;
+
+    PacketLossDetector detecotr;
 
 public:
 
@@ -40,10 +43,20 @@ public:
                 end - start).count();
 
         monitor.record(latency);
+
+        // Check packet loss
+        detecotr.check(msg.sequence);
+
     }
 
     void printPerformanceReport()
     {
         monitor.printReport();
     }
+
+    void printPacketLossReport()
+    {
+        detector.printReport()
+    }
+
 };

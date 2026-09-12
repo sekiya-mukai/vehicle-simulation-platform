@@ -15,7 +15,16 @@ private:
 
     double max_latency = 0.0;
 
+    std::chrono::high_resolution_clock::time_point start_time;
+    std::chrono::high_resolution_clock::time_point end_time;
+
 public:
+
+    PerformanceMonitor()
+    {
+        start_time =
+            std::chrono::high_resolution_clock::now();
+    }
 
     void record(double latency_ms)
     {
@@ -32,6 +41,9 @@ public:
         {
             max_latency = latency_ms;
         }
+
+        end_time =
+            std::chrono::high_resolution_clock::now();
     }
 
     void printReport() const
@@ -53,5 +65,38 @@ public:
         std::cout << "Max Latency : "
                   << max_latency
                   << " ms\n";
+
+        // ThroughPut
+        double elapsed_sec =
+            std::chrono::duration<double>(
+                end_time - start_time).count();
+
+        std::cout
+                << "Elapsed Time : "
+                << elapsed_sec
+                << "sec\n";
+        
+        std::cout
+                << "Throughput : "
+                << calculateThroughput()
+                << "msg/sec\n";
+
     }
+
+    double calculateThroughput() const
+    {
+        double elapsed_sec =
+            std::chrono::duration<double>(
+                end_time - start_time).count();
+        
+        if(elapsed_sec <= 0.0)
+        {
+            return 0.0;
+        }
+
+        return count / elapsed_sec;
+    }
+
+
+
 };

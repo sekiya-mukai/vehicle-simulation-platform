@@ -8,7 +8,8 @@ struct Message
     
     std::string data;
 
-    std::string data;
+    unsigned int sequence;
+
 
 };
 

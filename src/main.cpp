@@ -14,14 +14,14 @@ int main()
 
     // bus.send(msg);
 
-    for(int i = 0; i < 100; i++)
+    for(int i = 0; i < 10000; i++)
     {
         auto msg = sender.createMessage();
 
         // Cause packet loss Intentionally
         if(i==50)
         {
-            continue
+            continue;
         }
 
         bus.send(msg);

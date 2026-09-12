@@ -17,7 +17,8 @@ private:
 
     PerformanceMonitor monitor;
 
-    PacketLossDetector detecotr;
+    PacketLossDetector detector;
+
 
 public:
 
@@ -45,7 +46,7 @@ public:
         monitor.record(latency);
 
         // Check packet loss
-        detecotr.check(msg.sequence);
+        detector.check(msg.sequence);
 
     }
 
@@ -56,7 +57,7 @@ public:
 
     void printPacketLossReport()
     {
-        detector.printReport()
+        detector.printReport();
     }
 
 };

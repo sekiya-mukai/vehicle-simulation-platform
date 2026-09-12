@@ -3,16 +3,17 @@
 #include <chrono>
 #include <iostream>
 
+// 役割　通信性能を計測
 class PerformanceMonitor
 {
 private:
-
+    // 総通信数
     int count = 0;
-
+    // 平均遅延
     double total_latency = 0.0;
-
+    // 最小遅延
     double min_latency = 999999.0;
-
+    // 最大遅延
     double max_latency = 0.0;
 
     std::chrono::high_resolution_clock::time_point start_time;
@@ -66,7 +67,6 @@ public:
                   << max_latency
                   << " ms\n";
 
-        // ThroughPut
         double elapsed_sec =
             std::chrono::duration<double>(
                 end_time - start_time).count();
@@ -76,6 +76,7 @@ public:
                 << elapsed_sec
                 << "sec\n";
         
+        // スループット(処理件数/秒)
         std::cout
                 << "Throughput : "
                 << calculateThroughput()

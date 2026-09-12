@@ -3,6 +3,9 @@
 #include <fstream>
 #include <string>
 
+/*
+役割 評価結果をレポートファイルへ保存します。
+*/
 class ReportGenerator
 {
 public:
@@ -57,4 +60,21 @@ public:
             << packet_loss_count
             << "\n";
     }
+
+    /*
+   < 以下のような出力を得る>
+   
+    === Vehicle Communication Report ===
+    Message Count : 9999
+    Average Latency : 0.0857438 ms
+    Min Latency : 0.017633 ms
+    Max Latency : 193.516 ms
+    Elapsed Time : 0.86273 sec
+    Throughput : 11589.9 msg/sec
+    Packet Loss Count : 1
+
+    */
+
+
+
 };

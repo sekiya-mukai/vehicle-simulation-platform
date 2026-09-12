@@ -2,12 +2,14 @@
 
 #include "message.hpp"
 
+// 役割　送信ECU
 class SenderECU
 {
 private:
     int sequence = 0;
 
 public:
+    // メッセージを生成
     Message createMessage()
     {
         Message msg;

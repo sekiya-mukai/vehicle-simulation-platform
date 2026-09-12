@@ -7,6 +7,7 @@
 
 #include <chrono>
 
+// CAN通信路を模擬（通信を中継する管理クラス）
 class CANBus
 {
 private:
@@ -31,9 +32,9 @@ public:
     {
         auto start =
             std::chrono::high_resolution_clock::now();
-
+        // Loggerへ通知
         logger.log(msg);
-
+        // メッセージをRecvECUへ転送
         receiver->recv(msg);
 
         auto end =
@@ -42,10 +43,10 @@ public:
         double latency =
             std::chrono::duration<double, std::milli>(
                 end - start).count();
-
+        // PerformanceMonitorへ通知
         monitor.record(latency);
 
-        // Check packet loss
+        // PacketLossDetectorへ通知(シーケンス番号を監視)
         detector.check(msg.sequence);
 
     }

@@ -5,6 +5,7 @@
 #include <chrono>
 #include <iomanip>
 
+// 役割　通信ログを保存
 class Logger
 {
 public:

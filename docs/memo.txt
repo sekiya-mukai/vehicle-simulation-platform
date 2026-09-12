@@ -1,34 +1,13 @@
-1　通信遅延測定
-2　メッセージ欠損検知
-3　ループット測定
-4　通信ログ取得
-5　GoogleTest
+① Report Generator
 
-「SocketCANを使って通信評価基盤を自作した」
+↓
 
-Terminal1
+② GoogleTest
 
-Receiver
+↓
 
-----------------
+③ CMake
 
-Terminal2
+↓
 
-Sender
-
-----------------
-
-vcan0
-
-----------------
-
-Logger
-
-----------------
-
-Analyzer
-
-----------------
-
-GoogleTest
-
+④ SocketCAN移植

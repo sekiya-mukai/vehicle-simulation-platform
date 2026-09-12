@@ -39,6 +39,12 @@ public:
             << loss_count
             << std::endl;
     }
+
+    int getLossCount() const
+    {
+        return loss_count;
+    }
+
 };
 
 

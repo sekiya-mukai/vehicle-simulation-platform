@@ -97,6 +97,39 @@ public:
         return count / elapsed_sec;
     }
 
+    int getCount() const
+    {
+        return count;
+    }
+
+    double getAverageLatency() const
+    {
+        return total_latency / count;
+
+    }
+
+    double getMaxLatency() const
+    {
+        return max_latency;
+    }
+
+    double getMinLatency() const
+    {
+        return max_latency;
+    }
+
+    double getElapsedTime() const
+    {
+        return std::chrono::duration<double>(
+            end_time - start_time).count();
+    }
+
+    double getThroughput() const
+    {
+        return calculateThroughput();
+    }
+
+
 
 
 };

@@ -60,4 +60,40 @@ public:
         detector.printReport();
     }
 
+    // Getter
+    int getMessageCount() const
+    {
+        return monitor.getCount();
+    }
+
+    double getAverageLatency() const
+    {
+        return monitor.getAverageLatency();
+    }
+
+    double getMinLatency() const
+    {
+        return monitor.getMinLatency();
+    }
+
+    double getMaxLatency() const
+    {
+        return monitor.getMaxLatency();
+    }
+
+    double getElapsedTime() const
+    {
+        return monitor.getElapsedTime();
+    }
+
+    double getThroughput() const
+    {
+        return monitor.getThroughput();
+    }
+
+    int getPacketLossCount() const
+    {
+        return detector.getLossCount();
+    }
+
 };

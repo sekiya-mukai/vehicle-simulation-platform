@@ -14,7 +14,7 @@ int main()
     for(int i = 0; i < 10000; i++)
     {
         auto msg = sender.createMessage();
-
+        // Cause packet loss intentionally
         if(i == 50)
         {
             continue;
@@ -48,7 +48,6 @@ int main()
         Max Latency : 5.08759 ms
         Elapsed Time : 1.04022sec
         Throughput : 9612.38msg/sec
-
         Packet Loss Count = 1
 
         */
